@@ -4,15 +4,15 @@
   <title>Generate License Key</title>
 </head>
 <body>
-<h2>🔑 키 생성 중...</h2>
+<h2>🔑 Key generating...</h2>
 
 <script>
 fetch("https://fvaziodkhewcwbqjjuij.supabase.co/functions/v1/create-license", {
   method: "POST",
   headers: {
     "Content-Type": "application/json",
-    "apikey": "SUPABASE_ANON_KEY",
-    "Authorization": "Bearer SUPABASE_ANON_KEY"
+    "apikey": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImZ2YXppb2RraGV3Y3dicWpqdWlqIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzA0NjI1ODUsImV4cCI6MjA4NjAzODU4NX0.TBaMV3SMABOFPek39rcAdBKKGwYgqW1YtbijOc7PKCY",
+    "Authorization": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImZ2YXppb2RraGV3Y3dicWpqdWlqIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzA0NjI1ODUsImV4cCI6MjA4NjAzODU4NX0.TBaMV3SMABOFPek39rcAdBKKGwYgqW1YtbijOc7PKCY"
   },
   body: JSON.stringify({
     source: "lootlabs"
@@ -22,12 +22,12 @@ fetch("https://fvaziodkhewcwbqjjuij.supabase.co/functions/v1/create-license", {
 .then(data => {
   if (data.success) {
     document.body.innerHTML = `
-      <h1>🎉 라이선스 키 생성 완료</h1>
-      <p>아래 키를 프로그램에 입력하세요</p>
+      <h1>🎉 License Key created.</h1>
+      <p>Paste your key into executor</p>
       <code style="font-size:20px">${data.license}</code>
     `;
   } else {
-    document.body.innerHTML = "<h2>❌ 키 생성 실패</h2>";
+    document.body.innerHTML = "<h2>❌ Key generate failed.</h2>";
   }
 });
 </script>
