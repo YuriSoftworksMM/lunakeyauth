@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Generate License Key</title>
+</head>
+<body>
+<h2>🔑 키 생성 중...</h2>
+
+<script>
+fetch("https://fvaziodkhewcwbqjjuij.supabase.co/functions/v1/create-license", {
+  method: "POST",
+  headers: {
+    "Content-Type": "application/json",
+    "apikey": "SUPABASE_ANON_KEY",
+    "Authorization": "Bearer SUPABASE_ANON_KEY"
+  },
+  body: JSON.stringify({
+    source: "lootlabs"
+  })
+})
+.then(res => res.json())
+.then(data => {
+  if (data.success) {
+    document.body.innerHTML = `
+      <h1>🎉 라이선스 키 생성 완료</h1>
+      <p>아래 키를 프로그램에 입력하세요</p>
+      <code style="font-size:20px">${data.license}</code>
+    `;
+  } else {
+    document.body.innerHTML = "<h2>❌ 키 생성 실패</h2>";
+  }
+});
+</script>
+</body>
+</html>
