@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<body>
+<h2>키 생성 중...</h2>
+
+<script>
+const params = new URLSearchParams(window.location.search);
+const token = params.get("token");
+
+fetch("https://fvaziodkhewcwbqjjuij.supabase.co/functions/v1/create-license", {
+  method: "POST",
+  headers: {
+    "Content-Type": "application/json",
+    "apikey": "SUPABASE_ANON_KEY",
+    "Authorization": "Bearer SUPABASE_ANON_KEY"
+  },
+  body: JSON.stringify({ token })
+})
+.then(res => res.json())
+.then(data => {
+  if (data.success) {
+    document.body.innerHTML = `
+      <h1>🎉 라이선스 키 생성 완료</h1>
+      <code>${data.license}</code>
+    `;
+  } else {
+    document.body.innerHTML = "<h2>❌ 실패</h2>";
+  }
+});
+</script>
+</body>
+</html>
