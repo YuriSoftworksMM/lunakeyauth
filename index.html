@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Luna Key</title>
+</head>
+<body>
+
+<h1>🔑 Luna Key Generator</h1>
+<button onclick="goAd()">Get Key After The AD Step</button>
+
+<script>
+function goAd() {
+  const redirectUrl =
+    "https://getlunakey.vercel.app/GenerateKey?adgate=1";
+
+  const adgateUrl =
+    "https://wall.adgatemedia.com/?" +
+    "appid=YOUR_APP_ID" +
+    "&playerid=" + crypto.randomUUID() +
+    "&redirect=" + encodeURIComponent(redirectUrl);
+
+  window.location.href = adgateUrl;
+}
+</script>
+
+</body>
+</html>
